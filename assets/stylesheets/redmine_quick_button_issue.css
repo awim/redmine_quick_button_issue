@@ -1,0 +1,44 @@
+/*
+ * Copyright © 2016. mtaqwim
+ *
+ * Don't waste your times to read this message!
+ * There are no protection for this material. You permitted to copy, duplicate, modify, even restore this material with your original idea.
+ * Innovation come from sharing and collaborate ideas. Just use this programs for free, its just one of many project that has I developed by self.
+ * If you found any similarity or identical concept with other project, may it cause we got the inspiration at the same time, same moment, and same background of thinking.
+ * Thanks, to use this program if you have any comment to help me improve. Please contact me at: http://awim.id/
+ *
+ * Material Info:
+ * Project: dtss
+ * Module: dtss
+ * File: redmine_quick_button_issue.css
+ * Last Modified: 5/20/16 9:29 AM
+ */
+
+@import "w-bootstrap-iso.css";
+
+/* QUICK BUTTON STYLE */
+/* Color */
+.lightgreen{color:lightgreen}
+.red{color:red}
+.yellow-metro{color:#ffc425}
+.orange-metro{color:#f37735}
+.green-metro{color:#00b159}
+.blue-metro{color:#00aedb}
+.red-metro{color:#d11141}
+
+/* Sise */
+.size-small{font-size:1.1em;padding:0.3em}
+.size-medium{font-size:1.8em;padding:0.5em}
+
+#quick-modal{top:2%}
+
+.text-large{font-size: large}
+.text-larger{font-size: larger}
+.text-x-large{font-size: x-large}
+.text-xx-large{font-size: xx-large}
+.text-medium{font-size: medium}
+.text-small{font-size: small}
+
+.vertical-top{vertical-align: top}
+.vertical-middle{vertical-align: middle}
+.vertical-bottom{vertical-align: bottom}

@@ -1,0 +1,16 @@
+{
+  "projects":{
+    "custom-demo-request":{
+      "tracker":[6,8,13],
+      "exclude_status":[]
+    },
+    "demo-platform":{
+      "tracker":[8,13],
+      "exclude_status":[]
+    },
+    "demo-virtual-machine-request":{
+      "tracker":7,
+      "exclude_status":[]
+    }
+  }
+}

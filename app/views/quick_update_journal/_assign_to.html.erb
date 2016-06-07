@@ -1,0 +1,23 @@
+<div class="w-bootstrap-iso">
+    <%= form_tag({
+                         :controller => 'issues',
+                         :action => 'update',
+                         :id => @issue.id
+                 },
+                 :method => :put,
+                 :id => 'issue-form') do %>
+        <div class="form-group">
+            <h4>Assign to user:</h4>
+            <p class="input-group">
+                <span class="input-group-addon" title="Assign to User"><span class=" glyphicon glyphicon-user"></span></span>
+                <%= select_tag 'issue[assigned_to_id]', principals_options_for_select(@issue.assignable_users, @issue.assigned_to), :class => 'form-control', "data-live-search" => true, :required => true %>
+            </p>
+            <p><%= link_to 'add note','#', :onclick => 'showComponent("#quick-notes")' %> <small>(optional)</small></p>
+            <p><textarea id="quick-notes" class="form-control hide" rows="3" name="issue[notes]"></textarea></p>
+            <p class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-ok"></span> Submit</button>
+                <button type="button" class="btn btn-default btn-lg" onclick="hideModal(this)">&#9899; Cancel</button>
+            </p>
+        </div>
+    <% end %>
+</div>

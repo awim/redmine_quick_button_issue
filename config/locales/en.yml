@@ -1,0 +1,39 @@
+# English strings go here for Rails i18n
+en:
+  button_approve: Approve
+  button_reject: Reject
+  button_assign: Assign To
+#  button_change_mode: Change Priority
+#  button_start: Start
+#  button_pause: Pause
+#  button_finish: Finish
+
+  hint_approve: Approve task
+  hint_reject: Reject task
+  hint_assign: Select user as assignee for the task
+#  hint_change_mode: Change task mode or Priority
+#  hint_start: Start progress immediately
+#  hint_pause: Pause / Pending task progress
+#  hint_finish: Finish task and assign to manager to verify
+
+  modal_header_approve: Approve Task
+  modal_body_approve: Fill other input that needed to complete approval
+  modal_footer_approve:
+  modal_header_reject: Reject Task
+  modal_body_reject: Are you sure want to reject this task?
+  modal_footer_reject:
+  modal_header_assign_to: Assign Task
+  modal_body_assign_to: Select available user to run this task
+  modal_footer_assign_to:
+
+  desc_of_approve_task: Approving this task will update the status from then to new
+  desc_of_reject_task: Rejecting this task will update the status from then to new
+  desc_of_assign_to_task: Re-assign this task will update set assigne for specific user then alert them by email
+
+  permission_approve_task: Approve Task
+  permission_reject_task: Reject Task
+  permission_reassign_task: Reassign Task
+#  permission_change_mode_task: Change Task Mode
+#  permission_start_task: Start Progress
+#  permission_pause_task: Pause Progress
+#  permission_finish_task: Finish Progress

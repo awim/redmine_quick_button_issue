@@ -1,0 +1,10 @@
+<%
+    modalHeader = case params[:task_event]
+        when 'approve' then l(:modal_header_approve)
+        when 'reject' then l(:modal_header_reject)
+        when 'assign_to' then l(:modal_header_assign_to)
+    end
+%>
+$('#quick-modal').html('<%= escape_javascript(render :partial=>'quick_update_journal/'+params[:task_event].to_s, :locals=>{:issue => @issue, :task_event=> params[:task_event]}) %>');
+showModalWithTitle('quick-modal', '600px',"<%= escape_javascript modalHeader + ' #' + @issue.id.to_s %>");
+$('#quick-modal').removeClass('hide');

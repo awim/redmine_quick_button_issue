@@ -1,0 +1,23 @@
+<%= javascript_include_tag "redmine_quick_button_issue", :plugin => 'redmine_quick_button_issue' %>
+<div class="w-bootstrap-iso">
+    <div class="contextual">
+        <% if User.current.allowed_to?(:approve_task, @project) && IssueStatus.find(@issue.status)[:default_done_ratio]==0 %>
+            <span class="glyphicon glyphicon-ok size-small lightgreen"></span>
+            <%= link_to l(:button_approve), quick_popup_path(:task_id=>@issue.id, :task_event => 'approve'), :remote => true %>
+        <% end %>
+        <% if User.current.allowed_to?(:reject_task, @project)  && IssueStatus.find(@issue.status)[:default_done_ratio]==0%>
+            <span class="glyphicon glyphicon-remove size-small red"></span>
+            <%= link_to l(:button_reject), quick_popup_path(:task_id=>@issue.id, :task_event => 'reject'), :remote => true %>
+        <% end %>
+        <% if User.current.allowed_to?(:reassign_task, @project) %>
+            <span class="glyphicon glyphicon-user size-small blue-metro"></span>
+            <%= link_to l(:button_assign), quick_popup_path(:task_id=>@issue.id, :task_event => 'assign_to'), :remote => true %>
+        <% end %>
+        <%= link_to l(:button_edit), edit_issue_path(@issue), :onclick => 'showAndScrollTo("update", "issue_notes"); return false;', :class => 'icon icon-edit', :accesskey => accesskey(:edit) if @issue.editable? %>
+        <%= link_to l(:button_log_time), new_issue_time_entry_path(@issue), :class => 'icon icon-time-add' if User.current.allowed_to?(:log_time, @project) %>
+        <%= watcher_link(@issue, User.current) %>
+        <%= link_to l(:button_copy), project_copy_issue_path(@project, @issue), :class => 'icon icon-copy' if User.current.allowed_to?(:add_issues, @project) %>
+        <%= link_to l(:button_delete), issue_path(@issue), :data => {:confirm => issues_destroy_confirmation_message(@issue)}, :method => :delete, :class => 'icon icon-del' if User.current.allowed_to?(:delete_issues, @project) %>
+    </div>
+    <div id="quick-modal" class="hidden"></div>
+</div>

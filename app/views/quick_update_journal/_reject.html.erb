@@ -1,0 +1,24 @@
+<div class="w-bootstrap-iso">
+    <%= form_tag('#',
+                 :remote => true,
+                 :method => :post,
+                 :id => 'new-watcher-form') do %>
+        <div class="form-group">
+            <div class="alert alert-warning" role="alert"><p><span class="glyphicon glyphicon-exclamation-sign text-x-large yellow-metro"></span> <%= l(:modal_body_reject) %></p></div>
+            <% if @allowed_approved_status.size==1 %>
+                <input type="hidden" name="issue[status_id]" value="<%= @allowed_rejected_status[0].id %>" />
+            <% else %>
+                <p class="input-group">
+                    <span class="input-group-addon"  title="Set status as"><span class=" glyphicon glyphicon-pencil"></span></span>
+                    <%= select_tag 'issue[status_id]', options_from_collection_for_select(@allowed_rejected_status, "id", "name"), { :class => 'form-control', "data-live-search" => true, :required => true} %>
+                </p>
+            <% end %>
+            <p>notes <small>(require)</small></p>
+            <p><textarea id="quick-notes"  name="issue[notes]" class="form-control" rows="3"></textarea></p>
+            <p class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-ok"></span> Submit</button>
+                <button type="button" class="btn btn-default btn-lg" onclick="hideModal(this)">&#9899; Cancel</button>
+            </p>
+        </div>
+    <% end %>
+</div>
