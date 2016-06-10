@@ -8,8 +8,9 @@
                  :id => 'issue-form') do %>
         <div class="form-group">
             <h4>Assign to user:</h4>
-            <% if @allowed_approved_status.map(&:name).include?('Open - Assigned') %>
-                <input type="hidden" name="issue[status_id]" value="Open - Assigned" />
+            <% open_assigned_status_id = 8
+               if !@issue.tracker.eql?('Shared Hosted Demo Booking') %>
+                <input type="hidden" name="issue[status_id]" value="<%= open_assigned_status_id %>" />
             <% end %>
             <p class="input-group">
                 <span class="input-group-addon" title="Assign to User"><span class=" glyphicon glyphicon-user"></span></span>

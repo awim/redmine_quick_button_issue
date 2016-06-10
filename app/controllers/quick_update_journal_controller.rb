@@ -108,12 +108,8 @@ class QuickUpdateJournalController < ApplicationController
     raise Unauthorized unless @issue.visible?
     @project = @issue.project
 
-    result = {}
     user_real = User.current
     @status_allowed = @issue.new_statuses_allowed_to(user_real)
-    @allowed_approved_status = []
-    @allowed_rejected_status = []
-    Rails.logger.info @issue.status
     @allowed_approved_status = @status_allowed.select {|status| status[:default_done_ratio] >= 0 && status[:default_done_ratio] < 100 && !status[:name].eql?(@issue.status.to_s) }
     @allowed_rejected_status = @status_allowed.select {|status| status[:is_closed] }
 
